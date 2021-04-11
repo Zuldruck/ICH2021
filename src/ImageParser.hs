@@ -12,7 +12,7 @@ import Text.ParserCombinators.Parsec.Char (char, digit, string, spaces)
 import Text.ParserCombinators.Parsec.Combinator (many1, between)
 import Text.ParserCombinators.Parsec.Prim (many)
 
-parseFile :: String -> IO [(ColorF, [Pixel])]
+parseFile :: String -> IO [(Color, [Pixel])]
 parseFile f = do
   e <- doesFileExist f
   if e then do
@@ -23,13 +23,13 @@ parseFile f = do
   else
     fail $ "ERROR: " ++ f ++ " doesn't exists"
 
-pOUT :: Parser [(ColorF, [Pixel])]
+pOUT :: Parser [(Color, [Pixel])]
 pOUT = many pCLUSTER
 
-pCLUSTER :: Parser (ColorF, [Pixel])
+pCLUSTER :: Parser (Color, [Pixel])
 pCLUSTER = do
   _ <- string "--\n"
-  c <- pCOLORF
+  c <- pCOLOR
   _ <- string "\n-\n"
   ps <- pPIXELS
   return (c, ps)
