@@ -3,7 +3,7 @@ module Pixel where
 data ColorF = ColorF Float Float Float
 
 showColorF :: ColorF -> String
-showColorF (ColorF r g b) = "(" ++ show r ++ ", " ++ show g ++ ", " ++ show b ++ ")"
+showColorF (ColorF r g b) = "(" ++ show r ++ "," ++ show g ++ "," ++ show b ++ ")"
 
 instance Show ColorF where
   show = showColorF
@@ -14,7 +14,7 @@ instance Eq ColorF where
 data Color = Color Int Int Int
 
 showColor :: Color -> String
-showColor (Color r g b) = "(" ++ show r ++ ", " ++ show g ++ ", " ++ show b ++ ")"
+showColor (Color r g b) = "(" ++ show r ++ "," ++ show g ++ "," ++ show b ++ ")"
 
 instance Show Color where
   show = showColor
@@ -25,7 +25,7 @@ instance Eq Color where
 data Position = Position Int Int
 
 showPosition :: Position -> String
-showPosition (Position x y) = "(" ++ show x ++ ", " ++ show y ++ ")"
+showPosition (Position x y) = "(" ++ show x ++ "," ++ show y ++ ")"
 
 instance Show Position where
   show = showPosition
